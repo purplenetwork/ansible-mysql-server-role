@@ -1,1 +1,5 @@
 - Install MySql server and set user/pwd to root/root
+- Create DB and user:
+    - db_name: 'test-db'
+    - db_user: 'root'
+    - db_password: 'root'

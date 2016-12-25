@@ -1,0 +1,4 @@
+---
+db_name: 'test-db'
+db_user: 'root'
+db_password: 'root'
