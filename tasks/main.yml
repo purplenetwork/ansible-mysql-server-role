@@ -1,0 +1,14 @@
+- name: install mysql packages
+  apt: pkg={{ item }} state=latest
+  sudo: true
+  with_items:
+    - mysql-server
+
+- name: update root password for all root accounts
+  mysql_user: name=root host={{ item }} check_implicit_admin=yes password=root login_user=root login_password=root
+  sudo: true
+  with_items:
+    - 127.0.0.1
+    - ::1
+    - localhost
+  notify: restart mysql

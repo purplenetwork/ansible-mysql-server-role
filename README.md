@@ -1,0 +1,1 @@
+- Install MySql server and set user/pwd to root/root
