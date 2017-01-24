@@ -1,4 +1,6 @@
 ---
-db_name: 'test-db'
-db_user: 'root'
-db_password: 'root'
+db_host: localhost
+db_root_pwd: root
+db_name: test-db
+db_user: test-usr
+db_password: test-pwd

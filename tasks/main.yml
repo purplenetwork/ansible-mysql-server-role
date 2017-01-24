@@ -1,12 +1,12 @@
 - name: Install mysql packages
   apt: pkg={{ item }} state=latest
-  sudo: true
+  become: true
   with_items:
     - mysql-server
 
 - name: Update root password for all root accounts
   mysql_user: name=root host={{ item }} check_implicit_admin=yes password=root login_user=root login_password=root
-  sudo: true
+  become: true
   with_items:
     - 127.0.0.1
     - ::1
@@ -16,8 +16,8 @@
 - name: Create DB
   mysql_db:
     name={{db_name}}
-    login_host=localhost
-    login_password=root
+    login_host={{db_host}}
+    login_password={{db_root_pwd}}
     login_user=root
   run_once: true
 
@@ -27,7 +27,7 @@
     password={{db_password}}
     priv={{db_name}}.*:ALL
     host=%
-    login_host=localhost
-    login_password=root
+    login_host={{db_host}}
+    login_password={{db_root_pwd}}
     login_user=root
   run_once: true
